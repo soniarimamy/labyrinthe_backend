@@ -10,3 +10,15 @@ services:
       - 8000:8000
     env_file: .env
     restart: always
+
+  test:
+    build:
+      context: .
+    container_name: labyrinth_backend_test
+    image: rochel05/labyrinth_backend_test
+    command: pytest -v
+    env_file: .env
+    depends_on:
+      - labyrinth_api
+    environment:
+      - PYTHONPATH=/labyrinth_api
