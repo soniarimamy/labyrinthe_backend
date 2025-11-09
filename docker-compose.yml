@@ -5,7 +5,7 @@ services:
     build:
       context: .
     container_name: labyrinth_backend_api
-    image: rochel/labyrinth_backend_api
+    image: rochel05/labyrinth_backend_api
     ports:
       - 8000:8000
     env_file: .env

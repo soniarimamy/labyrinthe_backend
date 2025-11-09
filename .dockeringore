@@ -12,6 +12,8 @@
 # ignore env folder
 env/
 env
+.venv/
+.venv
 
 # ignore python file
 __pycache__
