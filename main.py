@@ -1,20 +1,38 @@
-from api import *
-from fastapi import FastAPI
-from schemas import StartGameInput
+from fastapi import *
+from ressources.Game import *
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(version="1.0.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_methods=['*'],
+    allow_headers=['*'],
+    allow_origins=['*']
+)
 
 
 @app.get('/')
-def main():
-    return {"Welcome to labyrinth Project. This is Backend REST API"}
+async def main():
+    return {
+        "msg": "Welcome to labyrinth Project",
+        "info": [
+            {"rest api": "Backend (REST API) started on http://localhost:8000/"},
+            {"swagger (docs)": "http://localhost:8000/docs"},
+            {"swagger (redoc)": "http://localhost:8000/redoc"}
+        ]
+    }
 
 
 @app.post('/start')
-def start_game(start_game_input: StartGameInput):
-    return launch_game(start_game_input)
+async def start_game(start_game_input: StartGameInput):
+    return await launch_game(start_game_input)
 
 
 @app.get('/map')
-def discover_map():
-    return display_map()
+async def discover_map():
+    return await display_map()
+
+
+@app.post('/move')
+async def move_player(move_player_input: MovePlayerInput):
+    return await move_gamer(move_player_input)
