@@ -28,3 +28,19 @@ class MapDiscoveringOutput(BaseModel):
     y: int
     move: bool = False
     value = 'wall' or 'path' or 'trap' or 'home' or 'stop'
+
+
+class MovePlayerInput(BaseModel):
+    position_x: int
+    position_y: int
+
+
+class MovePlayerOutput(BaseModel):
+    player: str
+    message: str
+    position_x: int
+    position_y: int
+    dead: bool
+    win: bool
+    url_move: str
+    url_discover: str
