@@ -27,7 +27,7 @@ class MapDiscoveringOutput(BaseModel):
     x: int
     y: int
     move: bool = False
-    value = 'wall' or 'path' or 'trap' or 'home' or 'stop'
+    value: str = 'wall' or 'path' or 'trap' or 'home' or 'stop'
 
 
 class MovePlayerInput(BaseModel):
