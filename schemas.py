@@ -17,7 +17,14 @@ class StartGameOutput(BaseModel):
     message: str
     position_x: int
     position_y: int
-    dead: bool
-    win: bool
+    dead: bool = False
+    win: bool = False
     url_move: str
     url_discover: str
+
+
+class MapDiscoveringOutput(BaseModel):
+    x: int
+    y: int
+    move: bool = False
+    value = 'wall' or 'path' or 'trap' or 'home' or 'stop'
