@@ -1,4 +1,7 @@
+httpx
+pytest
 fastapi
 uvicorn
 requests
 python-dotenv
+pytest-asyncio
