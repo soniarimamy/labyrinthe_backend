@@ -2,7 +2,18 @@ from fastapi import *
 from ressources.Game import *
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(version="1.0.0")
+app = FastAPI(
+    title="Labyrinth API",
+    description="API for managing motion of player on a labyrinth field",
+    version="1.0.0",
+    contact={
+        "name": "Rochel SONIARIMAMY",
+        "email": "rochel.soniarimamy@gmail.com",
+    },
+    license_info={
+        "name": "MIT License",
+        "url": "https://opensource.org/licenses/MIT",
+    })
 app.add_middleware(
     CORSMiddleware,
     allow_methods=['*'],
